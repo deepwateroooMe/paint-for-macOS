@@ -5,7 +5,6 @@
 //  Created by sofiane ouafir on 11/11/16.
 //  Copyright © 2016 sofiane ouafir. All rights reserved.
 //
-
 import Foundation
 import Cocoa
 class Carre : Figure
@@ -23,7 +22,7 @@ class Carre : Figure
         couleurTrait.setStroke()
         couleurRemplissage.setFill()
         let monCarre = NSBezierPath()
-        monCarre.appendBezierPathWithRect(NSRect(x: position.x, y: position.y, width: width, height: width))
+        monCarre.appendRect(NSRect(x: position.x, y: position.y, width: width, height: width))
         monCarre.lineWidth = epaisseurTrait
         monCarre.stroke()
         if(estRempli)
@@ -34,8 +33,8 @@ class Carre : Figure
     
     override func contient(point: CGPoint) -> Bool {
         let monCarre = NSBezierPath()
-        monCarre.appendBezierPathWithRect(NSRect(x: position.x, y: position.y, width: width, height: width))
-        return monCarre.containsPoint(point)
+        monCarre.appendRect(NSRect(x: position.x, y: position.y, width: width, height: width))
+        return monCarre.contains(point)
     }
     
     override func description()-> String

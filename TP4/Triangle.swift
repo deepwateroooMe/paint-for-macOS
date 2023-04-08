@@ -22,10 +22,10 @@ class Triangle: Figure {
         couleurTrait.setStroke()
         couleurRemplissage.setFill()
         let monTriangle = NSBezierPath()
-        monTriangle.moveToPoint(NSPoint(x: position.x, y: position.y))
-        monTriangle.lineToPoint(NSPoint(x: (position.x + width), y: position.y))
-        monTriangle.lineToPoint(NSPoint(x: (position.x + width/2), y: position.y + width))
-        monTriangle.lineToPoint(NSPoint(x: (position.x), y: position.y))
+        monTriangle.move(to: NSPoint(x: position.x, y: position.y))
+        monTriangle.line(to: NSPoint(x: (position.x + width), y: position.y))
+        monTriangle.line(to: NSPoint(x: (position.x + width/2), y: position.y + width))
+        monTriangle.line(to: NSPoint(x: (position.x), y: position.y))
         monTriangle.lineWidth = epaisseurTrait
         monTriangle.stroke()
         if(estRempli)
@@ -36,11 +36,11 @@ class Triangle: Figure {
     
     override func contient(point: CGPoint) -> Bool {
         let monTriangle = NSBezierPath()
-        monTriangle.moveToPoint(NSPoint(x: position.x, y: position.y))
-        monTriangle.lineToPoint(NSPoint(x: (position.x + width), y: position.y))
-        monTriangle.lineToPoint(NSPoint(x: (position.x + width/2), y: position.y + width))
-        monTriangle.lineToPoint(NSPoint(x: (position.x), y: position.y))
-        return monTriangle.containsPoint(point)
+        monTriangle.move(to: NSPoint(x: position.x, y: position.y))
+        monTriangle.line(to: NSPoint(x: (position.x + width), y: position.y))
+        monTriangle.line(to: NSPoint(x: (position.x + width/2), y: position.y + width))
+        monTriangle.line(to: NSPoint(x: (position.x), y: position.y))
+        return monTriangle.contains(point)
     }
     
     override func description()-> String

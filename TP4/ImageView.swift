@@ -23,9 +23,11 @@ class ImageView: NSImageView {
     var isDessin = false
     var traitEpaisseur  = CGFloat()
 
-
-    override func mouseDragged(theEvent: NSEvent) {
-        let point = self.convertPoint(theEvent.locationInWindow, fromView: nil)
+    override func mouseDragged(with event: NSEvent) {
+        // let point = self.window?.convertPoint(toScreen: <#T##NSPoint#>)(event.locationInWindow, fromView: nil)
+        //let point = self.window?.convertPoint(toScreen: <#T##NSPoint#>)(event.locationInWindow, from: nil)
+        let point = self.convert(event.locationInWindow, from: nil)
+        
         // remplacer tte les variables par celle ci
         if(isCercle)
         {
@@ -81,7 +83,7 @@ class ImageView: NSImageView {
         }
     }
     
-    override func mouseUp(theEvent: NSEvent) {
+    override func mouseUp(with event: NSEvent) {
         if(isCercle)
         {
             setNeedsDisplay()
@@ -97,8 +99,8 @@ class ImageView: NSImageView {
         }
     }
     
-    override func mouseDown(theEvent: NSEvent) {
-        let point = self.convertPoint(theEvent.locationInWindow, fromView: nil)
+    override func mouseDown(with event: NSEvent) {
+        let point = self.convert(event.locationInWindow, from: nil)
         if(isCercle)
         {
             let cercle = Cercle.init(centre: point , rayon: 0)
@@ -138,7 +140,7 @@ class ImageView: NSImageView {
             for figure in figures
             {
                 i = i + 1
-                if(figure.contient(point))
+                if(figure.contient(point: point))
                 {
                     index = i
                 }
@@ -150,7 +152,7 @@ class ImageView: NSImageView {
             var findFigure = false
             for f in figures
             {
-                if(f.contient(point))
+                if(f.contient(point: point))
                 {
                     figure = f
                     findFigure = true
@@ -164,12 +166,9 @@ class ImageView: NSImageView {
                 setNeedsDisplay()
             }
         }
-       
-        
     }
-    
-    override func drawRect(dirtyRect: NSRect) {
-        super.drawRect(dirtyRect)
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
         
         for figure in figures
         {

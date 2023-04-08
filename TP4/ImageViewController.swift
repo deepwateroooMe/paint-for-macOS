@@ -30,18 +30,18 @@ class ImageViewController: NSViewController {
     var traitEpaisseur : CGFloat = 1
     
     @IBAction func boutonCouleur(sender: NSButton) {
-        boutonTriangle.state = NSOffState
-        boutonCarre.state = NSOffState
-        boutonCercle.state = NSOffState
-        boutonDeplacer.state = NSOffState
-        boutonDessin.state = NSOffState
+        boutonTriangle.state = NSControl.StateValue.off
+        boutonCarre.state = NSControl.StateValue.off
+        boutonCercle.state = NSControl.StateValue.off
+        boutonDeplacer.state = NSControl.StateValue.off
+        boutonDessin.state = NSControl.StateValue.off
         vueImage.isCercle = false
         vueImage.isCarre = false
         vueImage.isTriangle = false
         vueImage.isDeplacement = false
         vueImage.isDessin = false
-        couleurRemplissage.hidden = false
-        if(boutonCouleur.state == NSOffState)
+        couleurRemplissage.isHidden = false
+        if(boutonCouleur.state == NSControl.StateValue.off)
         {
             vueImage.isCouleur = false
         }
@@ -56,18 +56,18 @@ class ImageViewController: NSViewController {
     }
     
     @IBAction func boutonDeplacer(sender: NSButton) {
-        boutonTriangle.state = NSOffState
-        boutonCarre.state = NSOffState
-        boutonCercle.state = NSOffState
-        boutonCouleur.state = NSOffState
-        boutonDessin.state = NSOffState
+        boutonTriangle.state = NSControl.StateValue.off
+        boutonCarre.state = NSControl.StateValue.off
+        boutonCercle.state = NSControl.StateValue.off
+        boutonCouleur.state = NSControl.StateValue.off
+        boutonDessin.state = NSControl.StateValue.off
         vueImage.isCercle = false
         vueImage.isCarre = false
         vueImage.isTriangle = false
         vueImage.isCouleur = false
         vueImage.isDessin = false
-        couleurRemplissage.hidden = false
-        if(boutonDeplacer.state == NSOffState)
+        couleurRemplissage.isHidden = false
+        if(boutonDeplacer.state == NSControl.StateValue.off)
         {
            vueImage.isDeplacement = false
         }
@@ -81,12 +81,12 @@ class ImageViewController: NSViewController {
     }
     
     @IBAction func boutonCercle(sender: NSButton) {
-        boutonDeplacer.state = NSOffState
-        boutonTriangle.state = NSOffState
-        boutonCarre.state = NSOffState
-        boutonCouleur.state = NSOffState
-        boutonDessin.state = NSOffState
-        if(boutonCercle.state == NSOffState)
+        boutonDeplacer.state = NSControl.StateValue.off
+        boutonTriangle.state = NSControl.StateValue.off
+        boutonCarre.state = NSControl.StateValue.off
+        boutonCouleur.state = NSControl.StateValue.off
+        boutonDessin.state = NSControl.StateValue.off
+        if(boutonCercle.state == NSControl.StateValue.off)
         {
             vueImage.isCercle = false
         }
@@ -99,20 +99,20 @@ class ImageViewController: NSViewController {
         vueImage.isDeplacement = false
         vueImage.isCouleur = false
         vueImage.isDessin = false
-        couleurRemplissage.hidden = false
+        couleurRemplissage.isHidden = false
         vueImage.couleurTrait = couleurTrait.color
         vueImage.couleurRemplissage = couleurRemplissage.color
         vueImage.traitEpaisseur = CGFloat (boutonEpaisseur.intValue)
     }
     
     @IBAction func boutonCarre(sender: NSButton) {
-        boutonDeplacer.state = NSOffState
-        boutonTriangle.state = NSOffState
-        boutonCercle.state = NSOffState
-        boutonCouleur.state = NSOffState
-        boutonDessin.state = NSOffState
+        boutonDeplacer.state = NSControl.StateValue.off
+        boutonTriangle.state = NSControl.StateValue.off
+        boutonCercle.state = NSControl.StateValue.off
+        boutonCouleur.state = NSControl.StateValue.off
+        boutonDessin.state = NSControl.StateValue.off
         vueImage.isCercle = false
-        if(boutonCarre.state == NSOffState)
+        if(boutonCarre.state == NSControl.StateValue.off)
         {
             vueImage.isCarre = false
         }
@@ -124,24 +124,24 @@ class ImageViewController: NSViewController {
         vueImage.isDeplacement = false
         vueImage.isCouleur = false
         vueImage.isDessin = false
-        couleurRemplissage.hidden = false
+        couleurRemplissage.isHidden = false
         vueImage.couleurTrait = couleurTrait.color
         vueImage.couleurRemplissage = couleurRemplissage.color
         vueImage.traitEpaisseur = CGFloat (boutonEpaisseur.intValue)
     }
     
     @IBAction func boutonTriangle(sender: NSButton) {
-        boutonDeplacer.state = NSOffState
-        boutonCarre.state = NSOffState
-        boutonCercle.state = NSOffState
-        boutonCouleur.state = NSOffState
-        boutonDessin.state = NSOffState
+        boutonDeplacer.state = NSControl.StateValue.off
+        boutonCarre.state = NSControl.StateValue.off
+        boutonCercle.state = NSControl.StateValue.off
+        boutonCouleur.state = NSControl.StateValue.off
+        boutonDessin.state = NSControl.StateValue.off
         vueImage.isCercle = false
         vueImage.isCarre = false
         vueImage.isCouleur = false
         vueImage.isDessin = false
-        couleurRemplissage.hidden = false
-        if(boutonTriangle.state == NSOffState)
+        couleurRemplissage.isHidden = false
+        if(boutonTriangle.state == NSControl.StateValue.off)
         {
             vueImage.isTriangle = false
         }
@@ -157,24 +157,24 @@ class ImageViewController: NSViewController {
     
     
     @IBAction func boutonDessin(sender: NSButton) {
-        boutonDeplacer.state = NSOffState
-        boutonCarre.state = NSOffState
-        boutonCercle.state = NSOffState
-        boutonCouleur.state = NSOffState
-        boutonTriangle.state = NSOffState
+        boutonDeplacer.state = NSControl.StateValue.off
+        boutonCarre.state = NSControl.StateValue.off
+        boutonCercle.state = NSControl.StateValue.off
+        boutonCouleur.state = NSControl.StateValue.off
+        boutonTriangle.state = NSControl.StateValue.off
         vueImage.isCercle = false
         vueImage.isCarre = false
         vueImage.isCouleur = false
         vueImage.isTriangle = false
         
-        if(boutonDessin.state == NSOffState)
+        if(boutonDessin.state == NSControl.StateValue.off)
         {
-            couleurRemplissage.hidden = false
+            couleurRemplissage.isHidden = false
             vueImage.isDessin = false
         }
         else
         {
-            couleurRemplissage.hidden = true
+            couleurRemplissage.isHidden = true
             vueImage.isDessin = true
         }
         vueImage.isDeplacement = false
@@ -186,7 +186,7 @@ class ImageViewController: NSViewController {
     
     
     @IBAction func boutonEstRempli(sender: NSButton) {
-        if(sender.state == NSOnState)
+        if(sender.state == NSControl.StateValue.on)
         {
             vueImage.estRempli = true
         }
@@ -214,7 +214,7 @@ class ImageViewController: NSViewController {
         didSet{
              if imageUrl != nil
              {
-                let monImage = NSImage(contentsOfURL: imageUrl!)!
+                let monImage = NSImage(contentsOf: imageUrl! as URL)!
                 vueImage.image = monImage
                 vueImage.setFrameSize(monImage.size)
             }
@@ -228,7 +228,7 @@ class ImageViewController: NSViewController {
         openPanel.canChooseDirectories = false
         openPanel.title = "Choisir une image"
         openPanel.runModal()
-        imageUrl = openPanel.URL
+        imageUrl = openPanel.url as NSURL?
         vueImage.viderFigure()
         //enregistrer.enabled = true
         
@@ -315,21 +315,22 @@ class ImageViewController: NSViewController {
     
     
     @IBAction func enregistrer(sender: NSMenuItem) {
-        let data : NSData = vueImage.dataWithPDFInsideRect(NSRect.init(origin: CGPoint.init(x: 0, y: 0) , size: vueImage.image!.size))
-        data.writeToFile(imageUrl!.path!.stringByReplacingOccurrencesOfString(".jpg", withString: "").stringByReplacingOccurrencesOfString(".png", withString: ""), atomically: true)
+        let data : NSData = vueImage.dataWithPDF(inside: NSRect.init(origin: CGPoint.init(x: 0, y: 0) , size: vueImage.image!.size)) as NSData as NSData
+        data.write(toFile: imageUrl!.path!.replacingOccurrences(of: ".jpg", with: "").replacingOccurrences(of: ".png", with: ""), atomically: true)
     }
     
     
    @IBAction func enregistrerSous(sender: NSMenuItem) {
         let savePanel = NSSavePanel()
-        if(savePanel.runModal() == NSFileHandlingPanelOKButton)
+       if(savePanel.runModal().rawValue == NSFileHandlingPanelOKButton as NSInteger)
         {
-            let saveUrl = savePanel.URL
-            let data : NSData = vueImage.dataWithPDFInsideRect(NSRect.init(origin: CGPoint.init(x: 0, y: 0) , size: vueImage.image!.size))
-            data.writeToFile(saveUrl!.path!.stringByReplacingOccurrencesOfString(".jpg", withString: "").stringByReplacingOccurrencesOfString(".png", withString: ""), atomically: true)
+            let saveUrl = savePanel.url
+            
+            let data : NSData = vueImage.dataWithPDF(inside: NSRect.init(origin: CGPoint.init(x: 0, y: 0) , size: vueImage.image!.size)) as NSData
+            data.write(toFile: saveUrl!.path.replacingOccurrences(of: ".jpg", with: "").replacingOccurrences(of: ".png", with: ""), atomically: true)
            
 //
-//        let file = "TP4/TP4/sauvegarde/" + saveUrl!.path!.stringByReplacingOccurrencesOfString("/", withString: "-").stringByReplacingOccurrencesOfString("jpg", withString: "txt")
+//        let file = "TP4/TP4/sauvegarde/" + saveUrl!.path!.replacingOccurences("/", withString: "-").replacingOccurences("jpg", withString: "txt")
 //    
 //    
 //        if let dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
@@ -383,13 +384,11 @@ class ImageViewController: NSViewController {
             print("Image non trouvée")
         }
         
-        couleurTrait.addObserver(self, forKeyPath: "color", options: .New, context: nil)
-        couleurRemplissage.addObserver(self, forKeyPath: "color", options: .New, context: nil)
-        boutonEstRempli.state = NSOffState
+        couleurTrait.addObserver(self, forKeyPath: "color", options: .new, context: nil)
+        couleurRemplissage.addObserver(self, forKeyPath: "color", options: .new, context: nil)
+        boutonEstRempli.state = NSControl.StateValue.off
     }
-    
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-                
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         vueImage.couleurTrait = couleurTrait.color
         vueImage.couleurRemplissage = couleurRemplissage.color
     }
@@ -398,5 +397,4 @@ class ImageViewController: NSViewController {
     {
         removeObserver(self, forKeyPath: "color")
     }
-    
 }

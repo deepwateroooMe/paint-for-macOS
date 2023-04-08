@@ -25,7 +25,7 @@ class Cercle : Figure
         couleurTrait.setStroke()
         couleurRemplissage.setFill()
         let monCercle = NSBezierPath()
-        monCercle.appendBezierPathWithArcWithCenter(self.position, radius: self.rayon, startAngle: 0, endAngle: 360)
+        monCercle.appendArc(withCenter: self.position, radius: self.rayon, startAngle: 0, endAngle: 360)
         monCercle.lineWidth = epaisseurTrait
         monCercle.stroke()
         if(self.estRempli)
@@ -36,8 +36,8 @@ class Cercle : Figure
     
     override func contient(point: CGPoint) -> Bool {
         let monCercle = NSBezierPath()
-        monCercle.appendBezierPathWithArcWithCenter(self.position, radius: self.rayon, startAngle: 0, endAngle: 360)
-        return monCercle.containsPoint(point)
+        monCercle.appendArc(withCenter: self.position, radius: self.rayon, startAngle: 0, endAngle: 360)
+        return monCercle.contains(point)
     }
     
     override func description()-> String
